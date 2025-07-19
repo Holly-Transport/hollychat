@@ -169,7 +169,7 @@ a:focus, a:hover {
     display: inline-block;
     padding: 15px 30px;
     background: var(--primary-color);
-    color: white;
+    color: white !important; /* Force white text color */
     text-decoration: none;
     border-radius: 4px;
     font-weight: 800;
@@ -180,13 +180,23 @@ a:focus, a:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-top: 20px;
+    /* Prevent text rendering issues */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active,
+.cta-button:visited {
     background: var(--primary-dark);
-    transform: translateY(-2px);
+    color: white !important; /* Ensure text stays white */
+    text-decoration: none;
+    /* Use a gentler transform to prevent rendering bugs */
+    transform: translateY(-1px);
     box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-    color: white;
 }
 
 /* AI Chat Interface - Clean Blog Style */
@@ -504,9 +514,102 @@ a:focus, a:hover {
     height: 24px;
 }
 
-/* Remove the old CSS-based icon styles */
+/* Experience Header with Action Links */
+/* Fixed Action Links - Prevents text disappearing bug */
+.experience-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-/* Experience Timeline */
+.action-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: white !important; /* Force white text color */
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 133, 161, 0.2);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Prevent text rendering issues */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.action-link:hover,
+.action-link:focus,
+.action-link:active,
+.action-link:visited {
+    background: var(--primary-dark);
+    color: white !important; /* Ensure text stays white */
+    text-decoration: none;
+    /* Use a gentler transform to prevent rendering bugs */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 133, 161, 0.3);
+}
+
+/* Ensure SVG icons stay visible */
+.action-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Alternative version without transform if issues persist */
+.action-link-safe {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 133, 161, 0.2);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* No transform - safer for text rendering */
+}
+
+.action-link-safe:hover,
+.action-link-safe:focus,
+.action-link-safe:active,
+.action-link-safe:visited {
+    background: var(--primary-dark);
+    color: white !important;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 133, 161, 0.3);
+    /* No transform - only background and shadow change */
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .action-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
 /* Experience Timeline */
 .timeline {
     position: relative;
