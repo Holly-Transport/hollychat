@@ -4,7 +4,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@google-cloud/storage": "^7.16.0",
     "cheerio": "^1.1.0",
     "csv-parser": "^3.2.0",
     "fs-extra": "^11.3.0",

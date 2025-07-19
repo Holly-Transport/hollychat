@@ -3,8 +3,6 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getKnowledgeBase } from './load-knowledge-base.js';
-
 
 // Setup __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -53,20 +51,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 📦 Serve knowledge base JSON via secure signed URL
+  // 📦 Serve local knowledge base JSON
   if (req.method === 'GET' && req.url === '/knowledge') {
-    getKnowledgeBase()
-      .then(data => {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(data));
-      })
-      .catch(err => {
+    const kbPath = path.join(__dirname, 'knowledge-base.json');
+    fs.readFile(kbPath, (err, data) => {
+      if (err) {
         res.writeHead(500);
-        res.end('Error loading knowledge base: ' + err.message);
-      });
+        return res.end('Error loading knowledge base: ' + err.message);
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(data);
+    });
     return;
   }
-
 
   let filePath = '.' + req.url;
   if (filePath === './') {
@@ -75,7 +72,6 @@ const server = http.createServer((req, res) => {
 
   const extname = path.extname(filePath).toLowerCase();
   const mimeType = mimeTypes[extname] || 'application/octet-stream';
-
   const fullPath = path.join(__dirname, filePath);
 
   if (filePath === './index.html') {
@@ -115,6 +111,7 @@ const server = http.createServer((req, res) => {
     }
   });
 });
+
 
 server.listen(PORT, () => {
   console.log('🚀 Holly Krambeck ITSTI Application Server');
