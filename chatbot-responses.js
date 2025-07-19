@@ -1,14 +1,20 @@
 import { cosineSimilarity } from './chatbot-utils.js';
+import fs from 'fs/promises'; // Add this for reading the file
 
 let knowledgeBase = [];
 const embeddingCache = new Map(); // Optional: in-memory cache
 
 async function loadKnowledgeBase() {
     if (knowledgeBase.length === 0) {
-        const res = await fetch('private/knowledge-base.json');
-        knowledgeBase = await res.json();
+        try {
+            const data = await fs.readFile('/etc/secrets/knowledge-base.json', 'utf-8');
+            knowledgeBase = JSON.parse(data);
+        } catch (err) {
+            console.error('Failed to load knowledge base:', err);
+        }
     }
 }
+
 
 function findRelevantChunks(queryEmbedding, topN = 5, preferredTags = []) {
     const scored = knowledgeBase.map(entry => {
