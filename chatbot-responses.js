@@ -1,5 +1,5 @@
 import { cosineSimilarity } from './chatbot-utils.js';
-import fetch from 'node-fetch'; // Ensure this is installed for server-side fetch
+// import fetch from 'node-fetch'; 
 
 let knowledgeBase = [];
 
