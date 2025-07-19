@@ -1,5 +1,6 @@
 import { cosineSimilarity } from './chatbot-utils.js';
-import fs from 'fs/promises'; // Add this for reading the file
+import { Storage } from '@google-cloud/storage'; // GCS SDK
+import fetch from 'node-fetch'; // Ensure this is installed for server-side fetch
 
 let knowledgeBase = [];
 const embeddingCache = new Map(); // Optional: in-memory cache
@@ -7,14 +8,30 @@ const embeddingCache = new Map(); // Optional: in-memory cache
 async function loadKnowledgeBase() {
     if (knowledgeBase.length === 0) {
         try {
-            const data = await fs.readFile('/etc/secrets/knowledge-base.json', 'utf-8');
-            knowledgeBase = JSON.parse(data);
+            const storage = new Storage(); // Auto-uses GOOGLE_APPLICATION_CREDENTIALS
+            const bucketName = 'itsti-chat';
+            const fileName = 'knowledge-base.json';
+
+            const [signedUrl] = await storage
+                .bucket(bucketName)
+                .file(fileName)
+                .getSignedUrl({
+                    version: 'v4',
+                    action: 'read',
+                    expires: Date.now() + 10 * 60 * 1000 // 10 minutes
+                });
+
+            console.log('✅ Signed URL generated.');
+
+            const res = await fetch(signedUrl);
+            if (!res.ok) throw new Error(`Failed to fetch knowledge base: ${res.statusText}`);
+
+            knowledgeBase = await res.json();
         } catch (err) {
-            console.error('Failed to load knowledge base:', err);
+            console.error('❌ Failed to load knowledge base from GCS:', err);
         }
     }
 }
-
 
 function findRelevantChunks(queryEmbedding, topN = 5, preferredTags = []) {
     const scored = knowledgeBase.map(entry => {
