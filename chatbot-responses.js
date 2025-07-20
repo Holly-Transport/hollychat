@@ -3,13 +3,24 @@ import { cosineSimilarity } from './chatbot-utils.js';
 let knowledgeBase = [];
 const embeddingCache = new Map();
 
+let allTags = new Set(); // declare once, at the top
+
 async function loadKnowledgeBase() {
     if (knowledgeBase.length === 0) {
         const res = await fetch('knowledge-base.json');
         knowledgeBase = await res.json();
+
+        // ✅ Extract all tags into a Set
+        for (const entry of knowledgeBase) {
+            if (Array.isArray(entry.tags)) {
+                entry.tags.forEach(tag => allTags.add(tag));
+            }
+        }
+
+        console.log("✅ All unique tags:", Array.from(allTags));
     }
 }
-
+    
 function findRelevantChunks(queryEmbedding, topN = 5, preferredTags = []) {
     const scored = knowledgeBase.map(entry => {
         const sim = cosineSimilarity(entry.embedding, queryEmbedding);
@@ -78,16 +89,16 @@ export async function getOpenAIResponse(prompt, history, apiKey) {
         console.error("Embedding error:", err.message);
         return "⚠️ Error generating embedding. Try again later.";
     }
-
     const topChunks = findRelevantChunks(queryEmbedding, 5, ['leadership', 'innovation']);
     const context = topChunks.map(c => {
         let label = 'Other';
         if (c.type === 'cv') label = 'CV';
         else if (c.type === 'review') label = 'Performance Review';
         else if (c.type === 'jd') label = 'Job Description';
+        else if (c.type === 'feedback') label = 'OPE and DAIS Feedback'
+        else if (c.type === 'cover letter') label = "Cover Letter"
         return `(${label}):\n${c.text}`;
     }).join('\n\n');
-
 
     const messages = [
         {

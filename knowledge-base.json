@@ -13938,8 +13938,8 @@
   },
   {
     "source": "FY25 DAIS Feedback.docx",
-    "type": "other",
-    "tags": [],
+    "type": "feedback",
+    "tags": ["DAIS"],
     "text": "Feedback for Developmental Assignment",
     "embedding": [
       0.008060367777943611,
@@ -15479,7 +15479,7 @@
       -0.010666954331099987,
       -0.0017343825893476605
     ],
-    "weight": 0.8
+    "weight": 1
   },
   {
     "source": "FY25 DAIS Feedback.docx",
@@ -17024,11 +17024,11 @@
       0.026507927104830742,
       -0.00016388745279982686
     ],
-    "weight": 0.8
+    "weight": 1
   },
   {
     "source": "FY25 DAIS Feedback.docx",
-    "type": "other",
+    "type": "feedback",
     "tags": [],
     "text": "Date: May 1, 2025",
     "embedding": [
@@ -18569,15 +18569,20 @@
       0.009663380682468414,
       -0.03364081680774689
     ],
-    "weight": 0.8
+    "weight": 1
   },
   {
     "source": "FY25 DAIS Feedback.docx",
-    "type": "other",
+    "type": "feedback",
     "tags": [
       "technical",
       "leadership",
-      "collaboration"
+      "collaboration",
+      "ITS",
+      "leadership team",
+      "DAIS",
+      "engagement style",
+      "protocol"
     ],
     "text": "It was such a pleasure to have Holly Krambeck join the ITS leadership team on DAIS this year. Holly brought us a very fresh perspective and built awareness and empathy for some of our most critical users of technology in IBRD. She was so helpful in building bridges between DEC and ITS by pointing out ways in which ITS could be a stronger collaborator and better partner. Within ITS, she instilled new processes and discipline by examining data and observing behaviors. As a result, her suggestions were well received and very productive. Her engagement style is welcoming and inclusive. She was able to continuously scan our work program and environment for issues and risks, and her engagement style broke down barriers and silos. I valued Holly's advice as she coached me on the culture of WBG. As a new leader, her insights about personalities, power structures and protocols was essential training for me! I greatly appreciated the value that she created on her DAIS and hope that she received ",
     "embedding": [
@@ -20118,11 +20123,11 @@
       0.008104770444333553,
       0.000696084403898567
     ],
-    "weight": 0.8
+    "weight": 1
   },
   {
     "source": "FY25 DAIS Feedback.docx",
-    "type": "other",
+    "type": "feedback",
     "tags": [],
     "text": "equal value in the exchange.",
     "embedding": [
@@ -21663,7 +21668,7 @@
       0.0019442446064203978,
       0.03676117956638336
     ],
-    "weight": 0.8
+    "weight": 1
   },
   {
     "source": "FY25 OPE Feedback.docx",
@@ -38687,7 +38692,7 @@
       0.007880115881562233,
       -0.011379202827811241
     ],
-    "weight": 0.8
+    "weight": 0.6
   },
   {
     "source": "FY25 OPE Feedback.docx",
@@ -88205,11 +88210,12 @@
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "development",
       "leadership",
-      "innovation"
+      "innovation",
+      "Agile"
     ],
     "text": "Criteria: Certified Agilist.\nI am a certified SAFe 6 Agilist (May 2025)\nDemonstrated experience in international development, emerging markets, or social impact sectors.I am a seasoned World Bank operations professional, having been responsible for a nearly $1 billion portfolio of transportation and infrastructure loans and grants in emerging economies. Since then, I have established the World Bank Data Lab and the Development Data Partnership, programs that support modernization WB lending operations -- design, implementation, and monitoring of public infrastructure and service programs – using better data and digital methods.",
     "topic": "Leadership & Management",
@@ -89752,7 +89758,7 @@
       -0.009313386864960194,
       -0.0003999485052190721
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
@@ -89760,7 +89766,9 @@
     "tags": [
       "development",
       "leadership",
-      "innovation"
+      "innovation",
+      "multicultural",
+      "manage"
     ],
     "text": "Criteria: Proven ability to lead and manage multicultural, geographically distributed teams.\nAs an operations TTL, my portfolio grew to 5 transportation infrastructure loans and 2 innovation grants in East and Southeast Asia, making me responsible for managing nearly $1 billion in lending and technical assistance. To execute these programs, I coordinated nearly 40 staff and consultants, spread across different countries, including specialists in environmental and social safeguards, procurement, financial management, civil engineering, road safety, urban design, application development, and others. Since these colleagues had different managers, to ensure team commitment and adherence to project timelines, I needed to be exceedingly well organized, as well as to maintain routine communications and keep everyone highly motivated.  The indicator of success is the size of my portfolio, which was one of the largest in the Transport Practice at the time and a testament to the trust my managers had in me to oversee large teams.",
     "topic": "Leadership & Management",
@@ -91303,15 +91311,18 @@
       0.018976854160428047,
       0.0008819814538583159
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "development",
       "leadership",
-      "innovation"
+      "innovation",
+      "mentoring",
+      "staff",
+      "developing staff"
     ],
     "text": "Criteria: Experience in developing, mentoring, and succession planning for professional technical staff.\nAs program manager for the Development Data Partnership, I have overseen the career progression for two professional technical staff on my team, from STC to ETC to GF (a data scientist and a program officer), and for two staff from STC to ETC (both data scientists).",
     "topic": "Leadership & Management",
@@ -92854,15 +92865,18 @@
       -0.011002779938280582,
       -0.0006847947370260954
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "development",
       "leadership",
-      "innovation"
+      "innovation",
+      "large-scale enterprise",
+      "enterprise",
+      "partnerships"
     ],
     "text": "Criteria: Track record managing large-scale enterprise engagements and cross-functional partnerships.\nThe Development Data Partnership that I founded is a large-scale program with cross-functional partnerships internally, as well as externally. Internally, to build the Partnership program, I forged functional partnerships with the Legal, ITS (cloud, authentication, data, and OIS teams), DEC, and operations. Externally, I led formation of partnerships with 11 other international organizations that contribute funding and in-kind staff time towards the program, and more than 30 companies, which contribute millions of dollar’s worth of pro-bono data.",
     "topic": "Leadership & Management",
@@ -94405,14 +94419,16 @@
       0.005632568616420031,
       0.0030614708084613085
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "leadership",
-      "innovation"
+      "innovation",
+      "organizational capabilities",
+      "organize"
     ],
     "text": "Criteria:  Strong organizational capabilities.\nRegarding organizational capabilities, I presently manage a large self-financing  international program, with 11 other international organizations and 30 companies, with only a very small team. This is possible because of strong organizational skills, ensuring our small team is as productive (and happy) as possible, as well as ability to rope in colleagues from other units, also requiring high-organizational skills to keep track of the many aspects of the Partnership (legal, technical, and governance), while coordinating team members across different units and different external organizations.",
     "topic": "Leadership & Management",
@@ -95955,14 +95971,16 @@
       0.000540946435648948,
       0.026633329689502716
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "leadership",
-      "innovation"
+      "innovation",
+      "analytical capabilities",
+      "analytical"
     ],
     "text": "Criteria: Strong analytical capabilities.\nIn terms of analytical capabilities, my background in transportation engineering and subsequent post-graduate training in data science and AI have enabled me to continue undertaking and effectively leading analytical work. Since joining the Bank, I have published a number of analytical papers, including with the US National Academy of Sciences, on topics related to AI, data science, and transportation engineering – see CV for complete list.",
     "topic": "Leadership & Management",
@@ -97509,10 +97527,11 @@
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
       "development",
-      "leadership"
+      "leadership",
+      "business juddgement"
     ],
     "text": "Criteria: Strong business judgment capabilities.\nIn terms of business judgement, as a TTL, on a number of occasions I had to make tough decisions about how to proceed with our lending programs, particularly when there significant environment, social, or corruption risks. As TTL for a $150 million rural road program, I identified critical flaws in the consultant's financial analysis and conducted an independent review. This revealed hidden financial challenges. I also a high-corruption-risk component that wouldn’t serve beneficiaries. When counterparts resisted changes, I escalated to the national government counterparts, resulting in a restructured project that was appropriately sized for the implementing county and eliminated high-risk, low-value components.",
     "topic": "Leadership & Management",
@@ -99055,14 +99074,16 @@
       -0.006370407994836569,
       0.015493080019950867
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
     "type": "other",
     "tags": [
       "leadership",
-      "innovation"
+      "innovation",
+      "ITS Senior Leadership",
+      "ITS"
     ],
     "text": "Criteria: Ability to wholly participate in ITS Senior Leadership discussions.\nDuring my DAIS with the ITS front-office, I had the opportunity to actively participate in ITS Senior Leadership retreats and discussions – the daily huddle, the weekly tactical meetings, and the bi-weekly strategic meetings. Using lessons learned from the ITS retreat, I designed a new flow for the weekly tactical meetings, avoiding the need to pull together agendas every week, while keeping the meetings more focused and productive.",
     "topic": "Leadership & Management",
@@ -100605,13 +100626,14 @@
       -0.006420562043786049,
       0.008782189339399338
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
-    "type": "other",
+    "type": "cover letter",
     "tags": [
-      "development",
+      "developing country",
+      "developing countries",
       "leadership",
       "innovation"
     ],
@@ -102156,7 +102178,7 @@
       0.0023378871846944094,
       -0.016137627884745598
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
@@ -102164,7 +102186,8 @@
     "tags": [
       "development",
       "leadership",
-      "innovation"
+      "innovation",
+      "technology"
     ],
     "text": "Criteria: Deep understanding of conventional and emerging technologies, including innovative business models. My technical expertise spans both established and cutting-edge technologies. In conventional systems, I have advanced experience with geospatial information systems, databases, and full-stack web development using Python Flask, JavaScript, and cloud deployment platforms like Heroku. I maintain active GitHub repositories demonstrating hands-on coding capabilities across multiple languages and frameworks.\nIn emerging technologies, I'm at the forefront of AI/ML applications, currently leading a $1.5 million AI project nominated for a Presidential Innovation Award. Within weeks of OpenAI's GPT 3.5 API release in March 2023, I developed three practical applications: a CSV query tool using Python code generation, a GitHub repository analysis tool, and a location-based dataset query system. My work extends to IoT implementations, leading a program to install low-cost air quality monitors across all World Bank Group offices, creating valuable public data while supporting policy initiatives.\nI understand innovative business models through my work establishing sustainable funding mechanisms. The Development Data Partnership operates on a membership dues model with 12 international organizations, while the Data Lab is entirely self-funded through its programs.",
     "topic": "Technology Innovation Expertise",
@@ -103707,14 +103730,16 @@
       0.017206436023116112,
       0.018417952582240105
     ],
-    "weight": 1
+    "weight": 0.9
   },
   {
     "source": "ITSTI Cover Letter Annex.docx",
     "type": "other",
     "tags": [
       "development",
-      "innovation"
+      "innovation",
+      "problem solving"
+      "outcomes"
     ],
     "text": "Criteria: Creative problem-solving approach with passion for delivering meaningful outcomes.\nMy approach to problem-solving combines technical innovation with deep understanding of user needs to create solutions that address real-world challenges. When faced with the Philippines' lack of comprehensive crash data, I didn't simply digitize existing processes—I developed an entirely open-source platform that could be adapted globally, resulting in legislative adoption and translation into eight languages. Similarly, recognizing that traditional transit mapping was prohibitively expensive for developing cities, I created a methodology using international open data standards that enabled low-cost production of comprehensive transit databases. This approach – creating innovative programs with scaling as an objective from the beginning – is also being used in my current $1.5 million Gates Foundation project to scale national digital low-resource language libraries for AI model training.  My passion for meaningful outcomes drives me to ensure solutions are sustainable and scalable: the Data Lab and the Development Data Partnership operate as entirely self-funded. This creative approach consistently transforms technical challenges into opportunities for systemic impact, always keeping the end goal of development effectiveness at the center of innovation efforts.",
     "topic": "Technology Innovation Expertise",
@@ -105257,6 +105282,6 @@
       0.007531151175498962,
       0.009572112932801247
     ],
-    "weight": 1
+    "weight": 0.9
   }
 ]
