@@ -1,16 +1,12 @@
 import { cosineSimilarity } from './chatbot-utils.js';
-// import fetch from 'node-fetch'; 
 
 let knowledgeBase = [];
+const embeddingCache = new Map();
 
 async function loadKnowledgeBase() {
-    if (knowledgeBase.length > 0) return;
-    try {
-        const res = await fetch('/knowledge');
-        if (!res.ok) throw new Error('Could not load knowledge base');
+    if (knowledgeBase.length === 0) {
+        const res = await fetch('knowledge-base.json');
         knowledgeBase = await res.json();
-    } catch (err) {
-        console.error('Failed to fetch knowledge base from server:', err);
     }
 }
 
@@ -18,8 +14,9 @@ function findRelevantChunks(queryEmbedding, topN = 5, preferredTags = []) {
     const scored = knowledgeBase.map(entry => {
         const sim = cosineSimilarity(entry.embedding, queryEmbedding);
         const tagBoost = preferredTags.some(tag => entry.tags?.includes(tag)) ? 0.1 : 0;
-        const typeBoost = entry.type === 'cv' || entry.type === 'review' ? 0.05 : 0;
-        return { ...entry, similarity: sim + tagBoost + typeBoost };
+        const weight = entry.weight ?? 1.0; // fallback to 1.0 if undefined
+        const weightedScore = (sim + tagBoost) * weight;
+        return { ...entry, similarity: weightedScore };
     });
 
     return scored.sort((a, b) => b.similarity - a.similarity).slice(0, topN);
@@ -27,9 +24,6 @@ function findRelevantChunks(queryEmbedding, topN = 5, preferredTags = []) {
 
 async function fetchEmbedding(prompt, apiKey, retries = 3) {
     if (!prompt) throw new Error("Prompt required for embedding.");
-
-    // Optional: use cached embedding if available
-    // if (embeddingCache.has(prompt)) return embeddingCache.get(prompt);
 
     for (let attempt = 0; attempt < retries; attempt++) {
         try {
@@ -58,8 +52,6 @@ async function fetchEmbedding(prompt, apiKey, retries = 3) {
             const embedding = json?.data?.[0]?.embedding;
             if (!embedding) throw new Error("Invalid embedding response.");
 
-            // Optional: cache it
-            // embeddingCache.set(prompt, embedding);
             return embedding;
 
         } catch (err) {
@@ -93,8 +85,9 @@ export async function getOpenAIResponse(prompt, history, apiKey) {
         if (c.type === 'cv') label = 'CV';
         else if (c.type === 'review') label = 'Performance Review';
         else if (c.type === 'jd') label = 'Job Description';
-        return `SOURCE: ${label}\n\n${c.text}`;
+        return `(${label}):\n${c.text}`;
     }).join('\n\n');
+
 
     const messages = [
         {
@@ -104,10 +97,13 @@ export async function getOpenAIResponse(prompt, history, apiKey) {
 Use ONLY the context provided below — which includes her CV, performance reviews, and the job description — to answer user queries.
 
 ⚠️ If the information is NOT found in the context, you MUST respond: "Sorry, I couldn’t find any relevant information about that."
+⚠️ Do not include inline citations like "(Source: ...)". A list of sources will be automatically added after your response.
 
 ✅ Your responses must be:
 - Factual and directly supported by the context
 - Specific and grounded
+- Include at least one concrete example when possible
+- Clearly cite the source
 - Clear and concise
 - Completely free of speculation or guesswork
 
@@ -146,7 +142,7 @@ ${context}`
                 label: chunk.type === 'cv' ? 'CV' :
                     chunk.type === 'review' ? 'Performance Review' :
                     chunk.type === 'jd' ? 'Job Description' :
-                    chunk.source.replace(/\.\w+$/, ''), // fallback to filename without extension
+                    chunk.source.replace(/\.\w+$/, ''),
                 source: chunk.source,
                 snippet: chunk.text.slice(0, 200).trim() + '…'
             }))
