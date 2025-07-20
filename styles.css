@@ -1015,6 +1015,30 @@ a:focus, a:hover {
   margin-bottom: 8px;
 }
 
+
+.contact-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item-link:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item-link:hover .contact-item {
+    border-color: var(--primary-color, #007acc);
+}
+
+/* Add cursor pointer to make it clear the cards are clickable */
+.contact-item-link {
+    cursor: pointer;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
