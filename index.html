@@ -1,14 +1,10 @@
-<h3<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holly Krambeck | WBG Technology Innovation Office Manager Application</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-    
 </head>
 <body>
     <!-- Navigation -->
@@ -18,6 +14,7 @@
                 <div class="logo">Holly Krambeck</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#chat">AI Chat</a></li>
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#experience">Experience</a></li>
@@ -38,6 +35,39 @@
         </div>
     </header>
 
+    <!-- About This Website Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Start Here: About This Website</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Dear Selection Committee:</strong></p>
+                    <p>When I learned about the WBG Technology Innovation Office Manager position, I knew this was the perfect opportunity to combine my 20 years of international development and management experience with my passion for innovation with emerging technologies. Rather than submit a traditional application, I decided to demonstrate my commitment and technical capabilities by building this interactive website as a companion to my formal materials—completing the entire project in my free time over five days.</p>
+
+                    <p><strong>Chat Bot</strong> | I built an AI-powered chatbot implementing a full Retrieval Augmented Generation (RAG) system with Node.js and OpenAI's APIs, using ChatGPT as my coding copilot. First, I created a knowledge base from my CV, performance reviews, and cover letter. Then, I used OpenAI's text-embedding-3-small model to program the system to chunk documents semantically and generate embeddings. The architecture includes intelligent tag-based boosting for topics like "leadership" and "innovation," weighted scoring that prioritizes different document types, and strict response grounding that prevents hallucination.</p>
+
+                    <p><strong>Website Design</strong> | I coded this website using HTML, CSS, and JavaScript with my favorite Bootstrap template, using Claude.ai as my coding companion. My family served as user testers, suggesting UI improvements, as well as this "Start Here" section, so the Committee wouldn't think I just used an off-the-shelf WordPress template to build this (!)</p>
+
+                    <p>Thank you for taking the time to review my application.</p>
+                </div>
+                <div class="repo-screenshot">
+                    <div style="margin-bottom: 2rem;">
+                        <img src="img/prompt.png" alt="VS Code Development Environment" style="width: 100%; max-width: 500px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">My VS Code development environment showing the chatbot OpenAPI prompt</p>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <img src="img/render.png" alt="GitHub Repository and Deployment" style="width: 100%; max-width: 500px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">My website deployment pipeline, using Render.com</p>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <img src="img/github.png" alt="GitHub Repository Overview" style="width: 100%; max-width: 500px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">Complete GitHub repository showing project structure and development history</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Chat Interface -->
     <section class="section" id="chat">
         <div class="container">
@@ -56,7 +86,7 @@
                     </div>
                 </div>
                 <div class="chat-input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about my experience and skills...">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about AI projects, partnerships, technical skills, or ITSTI vision...">
                     <button class="send-button" id="sendButton">Send</button>
                 </div>
             </div>
@@ -248,6 +278,15 @@
                 </div>
             </div>
         </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Holly Krambeck. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="animations.js"></script>
     <script type="module" src="chatbot-main.js"></script>
