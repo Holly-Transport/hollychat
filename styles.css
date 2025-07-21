@@ -1,4 +1,4 @@
-/* Clean Blog inspired design */
+/* Styles from my personal website */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 * {
@@ -59,7 +59,7 @@ a:focus, a:hover {
     padding: 0 30px;
 }
 
-/* Navigation - Clean Blog Style */
+/* Navigation */
 .nav {
     position: fixed;
     top: 0;
@@ -110,7 +110,7 @@ a:focus, a:hover {
     color: var(--primary-color);
 }
 
-/* Hero Section - Clean Blog Masthead Style */
+/* Hero Section */
 .hero {
     min-height: 100vh;
     background: no-repeat center center;
@@ -199,7 +199,42 @@ a:focus, a:hover {
     box-shadow: 0 12px 35px rgba(0,0,0,0.3);
 }
 
-/* AI Chat Interface - Clean Blog Style */
+/*About*/
+
+.about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.repo-screenshot {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .repo-screenshot {
+        min-width: auto;
+    }
+}
+
+/* AI Chat Interface */
 .chat-interface {
     max-width: 900px;
     margin: 0 auto;
@@ -1083,4 +1118,20 @@ a:focus, a:hover {
     .timeline-marker {
         left: 30px;
     }
+}
+.footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
