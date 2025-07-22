@@ -166,5 +166,5 @@ ${context}`
 }
 
 export function getStaticResponse(prompt) {
-    return "🤖 Sorry, I don’t have an answer for that right now.";
+    return "Sorry - that info isn't in Holly's application materials. Try asking about her experience or projects.";
 }
