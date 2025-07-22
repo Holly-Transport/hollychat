@@ -107,7 +107,7 @@ export async function getOpenAIResponse(prompt, history, apiKey) {
 
 Use ONLY the context provided below — which includes her CV, performance reviews, and the job description — to answer user queries.
 
-⚠️ If the information is NOT found in the context, you MUST respond: "Sorry, I couldn’t find any relevant information about that."
+⚠️ If the information is NOT found in the context, you MUST respond: "Sorry, Holly's application materials do not include that information. Please try another question."
 ⚠️ Do not include inline citations like "(Source: ...)". A list of sources will be automatically added after your response.
 
 ✅ Your responses must be:
